@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love 💕</title>
+    <title>For Sophia</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="scrapbook-container">
         <!-- Decorative Sanrio Characters Top Left -->
         <div class="character character-top-left">
-            <div class="hellokitty"><img src="assets/hellokitty.png" alt="Hello Kitty"></div>
+            <div class="hellokitty" id="cinnamoroll-balloon-sticker"><img src="assets/hellokitty.png" alt="Hello Kitty">
+            </div>
         </div>
-        
+
         <!-- Decorative Sanrio Characters Top Right -->
         <div class="character character-top-right">
-            <div class="kuromi"><img src="assets/kuromi.png" alt="Kuromi"></div>
+            <div class="kuromi" id="kuromi-sticker"><img src="assets/kuromi.png" alt="Kuromi"></div>
         </div>
-        
+
         <!-- Decorative Sanrio Characters Bottom Left -->
         <div class="character character-bottom-left">
-            <div class="pompompurin"><img src="assets/pompompurin.png" alt="Pompompurin"></div>
+            <div class="pompompurin" id="pompompurin-sticker"><img src="assets/pompompurin.png" alt="Pompompurin"></div>
         </div>
-        
+
         <!-- Decorative Sanrio Characters Bottom Right -->
         <div class="character character-bottom-right">
-            <div class="badtz-maru"><img src="assets/badtzmaru.png" alt="Badtz-Maru"></div>
+            <div class="badtz-maru" id="badtz-maru-sticker"><img src="assets/badtzmaru.png" alt="Badtz-Maru"></div>
         </div>
-        
+
         <!-- Additional Characters -->
         <div class="character character-middle-left">
-            <div class="my-melody"><img src="assets/mymelody.png" alt="My Melody"></div>
+            <div class="my-melody" id="my-melody-sticker"><img src="assets/mymelody.png" alt="My Melody"></div>
         </div>
-        
+
         <div class="character character-middle-right">
-            <div class="cinnamoroll"><img src="assets/hellokitty2.png" alt="Cinnamoroll"></div>
+            <div class="cinnamoroll" id="cinnamoroll-sticker"><img src="assets/hellokitty2.png" alt="Cinnamoroll"></div>
         </div>
 
-
-
-        
         <!-- Big Cinnamoroll in Center - Letter Trigger -->
         <div class="cinnamoroll-trigger" id="cinnamorollTrigger">
             <img src="assets/cinnamoroll.png" alt="Cinnamoroll">
         </div>
-        
+
         <!-- Main Letter Container -->
         <main class="letter-container" id="letterContainer">
             <div class="letter-header">
                 <h1>To: Sophia</h1>
                 <div class="decorative-line"></div>
             </div>
-            
+
             <div class="letter-content" contenteditable="false">
                 <div class="letter-page" id="page1">
                     <p>Dear Sophia,</p>
@@ -64,12 +64,12 @@
                     <p>Ale</p>
                 </div>
             </div>
-            
+
             <div class="letter-footer">
                 <div class="decorative-line"></div>
                 <p class="signature">Wishing you the best,</p>
                 <p class="signature-name">Ale</p>
-                
+
                 <!-- Page Navigation -->
                 <div class="page-nav">
                     <button class="page-btn prev-btn" id="prevBtn" onclick="changePage(-1)">←</button>
@@ -79,9 +79,10 @@
             </div>
         </main>
 
-        
+
     </div>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>

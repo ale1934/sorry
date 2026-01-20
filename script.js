@@ -1,6 +1,5 @@
 // Add interactive elements and animations
 document.addEventListener('DOMContentLoaded', function() {
-    
     // Letter opening functionality
     const letterContainer = document.getElementById('letterContainer');
     const cinnamorollTrigger = document.getElementById('cinnamorollTrigger');
@@ -23,21 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Other Triggers ----------------------------------------------------
+    const cinnamorollBalloonTrigger = getElementById('cinnamoroll-balloon-sticker');
+    const cinnamorollStickerTrigger = getElementById('cinnamoroll-sticker'); 
+    const kuromiTrigger = getElementById('kuromi-sticker');
+    const pompompurinTrigger = getElementById('pompompurin-sticker');
+    const badtzMaruTrigger = getElementById('badtz-maru-sticker');
+    const myMelodyTrigger = getElementById('my-melody-sticker');
+    // -------------------------------------------------------------------
     
     // Remove click event from letter container
     letterContainer.style.cursor = 'default';
-     
-    // Animate Sanrio characters on hover
-    const characters = document.querySelectorAll('.character div');
-    characters.forEach(character => {
-        character.addEventListener('mouseenter', function() {
-            this.style.animation = 'bounce 0.5s ease';
-        });
-        
-        character.addEventListener('animationend', function() {
-            this.style.animation = '';
-        });
-    });
     
     // Add typewriter effect to header on load
     const header = document.querySelector('.letter-header h1');
@@ -54,18 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     setTimeout(typeWriter, 500);
-    
-    // Add hover sound effect simulation (visual feedback)
-    const interactiveElements = document.querySelectorAll('.character div, .sticker, .photo-corner');
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            this.style.filter = 'brightness(1.2) drop-shadow(0 0 10px rgba(255, 182, 193, 0.6))';
-        });
-        
-        element.addEventListener('mouseleave', function() {
-            this.style.filter = '';
-        });
-    });
     
     // Letter container tilt effect on mouse move (only when open)
     letterContainer.addEventListener('mousemove', function(e) {
@@ -149,21 +133,5 @@ style.textContent = `
         0% { transform: rotate(0deg) scale(1); }
         50% { transform: rotate(180deg) scale(1.3); }
         100% { transform: rotate(360deg) scale(1); }
-    }
-    
-    @keyframes sparkle-float {
-        0% { 
-            opacity: 1; 
-            transform: translateY(0) scale(0);
-        }
-        50% { 
-            opacity: 1; 
-            transform: translateY(-30px) scale(1);
-        }
-        100% { 
-            opacity: 0; 
-            transform: translateY(-60px) scale(0.5);
-        }
-    }
-`;
+    }`;
 document.head.appendChild(style);
