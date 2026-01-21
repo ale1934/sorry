@@ -10,14 +10,21 @@
 
 body {
     font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, #ffe0ec 0%, #ffd1e8 50%, #ffc2e3 100%);
+    background: linear-gradient(135deg, #ffe0f5 0%, #ffe0f5 25%, #ffd1dc 50%, #ffe0f5 75%, #ffd1dc 100%);
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.1) 2px, transparent),
+        radial-gradient(circle at 80% 20%, rgba(255, 182, 193, 0.1) 2px, transparent),
+        radial-gradient(circle at 20% 80%, rgba(255, 182, 193, 0.1) 2px, transparent);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px, 40px 0;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
     height: 100vh;
     overflow: hidden;
     position: relative;
     border: 15px solid transparent;
-    background-image:
-        linear-gradient(135deg, #ffe0ec 0%, #ffd1e8 50%, #ffc2e3 100%),
-        linear-gradient(45deg, #ffb6c1, #ffc0cb, #ffd1dc, #ffb6c1);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     border-image: linear-gradient(45deg, #ffb6c1, #ffc0cb, #ffd1dc, #ffb6c1, #ffc0cb) 1;
@@ -181,8 +188,8 @@ body.page-open .cinnamoroll-trigger {
     line-height: 1.8;
     min-height: 300px;
     padding: 1rem;
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
     border: 1px dashed rgba(255, 182, 193, 0.3);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.5);
@@ -209,6 +216,7 @@ body.page-open .cinnamoroll-trigger {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    min-width: 350px;
     position: fixed;
     top: 15%;
     left: 50%;
@@ -221,6 +229,7 @@ body.page-open .cinnamoroll-trigger {
     padding: 1rem 1.5rem;
     box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
     border: 2px solid rgba(255, 182, 193, 0.4);
+    font-size: 0.9rem;
 }
 
 .letter-container.open~.page-nav {
@@ -229,30 +238,47 @@ body.page-open .cinnamoroll-trigger {
 
 .page-btn {
     background: rgba(255, 182, 193, 0.3);
-    border: 2px solid rgba(255, 182, 193, 0.5);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-    color: #d63384;
+    border: 2px solid #ffb6c1;
+    color: #ff6b9d;
     cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-weight: 600;
+    backdrop-filter: blur(5px);
 }
 
-.page-btn:hover {
+.page-btn:hover:not(:disabled) {
     background: rgba(255, 182, 193, 0.5);
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
 }
 
 .page-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    transform: scale(1);
+    transform: none;
+}
+
+.lang-toggle {
+    background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+    border: 2px solid #ff6b9d;
+    color: white;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+    margin-left: 10px;
+}
+
+.lang-toggle:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
+    background: linear-gradient(45deg, #ff8fab, #ff6b9d);
 }
 
 .page-indicator {
@@ -715,6 +741,7 @@ body.page-open .cinnamoroll-trigger {
     color: #ff6b9d;
     margin-bottom: 0.5rem;
     font-weight: 600;
+    text-align: center;
 }
 
 /* Card Content Styling */
