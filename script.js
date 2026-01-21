@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             content: {
                 en: `
-                    <p>Also, I really appreciate all of the gifts you've given me! I recently put up panda diffuser in my room 
+                    <p>Also, I really appreciate all of the gifts you've given me! I recently put up the panda diffuser in my room 
                     and it has really made a difference. I've also solved the jigsaw puzzle like 3 items I didn't think a small puzzle 
                     would be so entertaining 😅
                     </p>
