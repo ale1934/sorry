@@ -36,24 +36,28 @@ body {
 
 /* Big Cinnamoroll Trigger */
 .cinnamoroll-trigger {
-    position: absolute;
-    top: 45%;
+    position: fixed;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 15;
+    z-index: 25;
     cursor: pointer;
     transition: all 0.3s ease;
     animation: gentle-bounce 3s ease-in-out infinite;
-    animation-delay: 2s;
+    animation-delay: 0.2s;
+    border-radius: 50%;
+    pointer-events: auto;
 }
 
 .cinnamoroll-trigger img {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     object-fit: contain;
+    pointer-events: auto;
+    cursor: pointer;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.9);
-    padding: 15px;
+    padding: 20px;
     box-shadow:
         0 15px 35px rgba(255, 182, 193, 0.5),
         0 8px 20px rgba(255, 182, 193, 0.3),
@@ -80,8 +84,16 @@ body {
     pointer-events: none;
 }
 
-@keyframes gentle-bounce {
+.cinnamoroll-trigger.page-btn:disabled {
+    pointer-events: none;
+}
 
+body.page-open .cinnamoroll-trigger {
+    pointer-events: none !important;
+}
+
+
+@keyframes gentle-bounce {
     0%,
     100% {
         transform: translate(-50%, -50%) translateY(0px);
@@ -104,15 +116,19 @@ body {
         0 5px 15px rgba(255, 182, 193, 0.2),
         inset 0 0 20px rgba(255, 192, 203, 0.1);
     border: 2px solid rgba(255, 182, 193, 0.3);
-    position: relative;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-1deg) scale(0.1);
     z-index: 10;
     backdrop-filter: blur(10px);
-    transform: rotate(-1deg) scale(0.1);
     opacity: 0;
     transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: default;
     transform-origin: center;
     overflow: visible;
+    touch-action: manipulation;
+    will-change: transform, opacity;
 }
 
 .letter-container::before {
@@ -136,12 +152,12 @@ body {
 }
 
 .letter-container.open {
-    transform: rotate(0deg) scale(1);
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
     opacity: 1;
 }
 
 .letter-container.open:hover {
-    transform: rotate(0deg) scale(1.02);
+    transform: translate(-50%, -50%) rotate(0deg) scale(1.02);
 }
 
 .letter-header {
@@ -270,8 +286,8 @@ body {
 /* Sanrio Characters */
 .character {
     position: absolute;
-    width: 96px;
-    height: 96px;
+    width: auto;
+    height: auto;
     padding: 2px;
     z-index: 5;
     animation: float 6s ease-in-out infinite;
@@ -279,57 +295,14 @@ body {
 }
 
 .character-top-left {
-    top: 15%;
+    top: 25%;
     left: 8%;
     animation-delay: 0s;
 }
 
 .character-top-right {
-    top: 10%;
-    right: 8%;
-    animation-delay: 0s;
-}
-
-.character-bottom-left {
-    bottom: 10%;
-    left: 25%;
-    animation-delay: 0s;
-}
-
-.character-bottom-right {
-    bottom: 25%;
-    right: 8%;
-    animation-delay: 0s;
-}
-
-/* Additional character positions */
-.character-middle-left {
-    top: 60%;
-    left: 5%;
-    animation: gentle-float 7s ease-in-out infinite;
-    animation-delay: 0s;
-}
-
-.character-middle-right {
-    top: 25%;
-    right: 2%;
-    animation: gentle-float 6.5s ease-in-out infinite;
-    animation-delay: 0s;
-}
-
-.character-top-center {
-    top: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: float 5.5s ease-in-out infinite;
-    animation-delay: 0s;
-}
-
-.character-bottom-center {
-    bottom: 8%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: float 6s ease-in-out infinite;
+    top: 18%;
+    right: 10%;
     animation-delay: 0s;
 }
 
@@ -339,55 +312,36 @@ body {
 }
 
 .character img {
-    width: 80px;
-    height: 80px;
+    width: 140px;
+    height: 140px;
+    display: block;
     object-fit: contain;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.8);
-    padding: 6px;
-    box-shadow: 0 4px 8px rgba(255, 182, 193, 0.4);
-    transition: all 0.3s;
-}
-
-/* Stickers */
-.sticker {
-    position: absolute;
-    font-size: 2rem;
-    z-index: 6;
+    padding: 10px;
+    box-shadow:
+        0 15px 35px rgba(255, 182, 193, 0.5),
+        0 8px 20px rgba(255, 182, 193, 0.3),
+        inset 0 0 30px rgba(255, 192, 203, 0.2);
+    border: 3px solid rgba(255, 182, 193, 0.4);
     transition: all 0.3s ease;
-    cursor: pointer;
-    animation: float 5s ease-in-out infinite;
 }
 
-.sticker-1 {
-    top: 15%;
-    left: 10%;
-    animation-delay: 0.5s;
+.character:hover img {
+    transform: scale(1.1);
 }
 
-.sticker-2 {
-    top: 10%;
-    right: 15%;
-    animation-delay: 0.5s;
+.character.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: not-allowed;
 }
 
-.sticker-3 {
-    bottom: 80%;
-    left: 10%;
-    animation-delay: 0.5s;
+.character.disabled img {
+    filter: grayscale(100%);
+    transform: none !important;
 }
 
-.sticker-4 {
-    bottom: 15%;
-    right: 10%;
-    animation-delay: 0.5s;
-}
-
-.sticker-5 {
-    top: 50%;
-    left: 5%;
-    animation-delay: 0.5s;
-}
 
 /* Animations */
 @keyframes float {
@@ -473,6 +427,12 @@ body {
         font-size: 2rem;
     }
 
+    .character img {
+        width: 120px;
+        height: 120px;
+        padding: 8px;
+    }
+
     .photo-corner {
         font-size: 1.5rem;
     }
@@ -491,7 +451,60 @@ body {
 @media (max-width: 480px) {
     .letter-container {
         padding: 1.5rem;
-        transform: none;
+        transition: none !important; /* Disable CSS transitions on mobile */
+    }
+
+    .letter-container.open {
+        animation: mobileLetterOpen 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes mobileLetterOpen {
+        from {
+            transform: translate(-50%, -50%) rotate(-1deg) scale(0.1);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            opacity: 1;
+        }
+    }
+
+    .gift-card-container {
+        transition: none !important; /* Disable CSS transitions on mobile */
+    }
+
+    .gift-card-container.open {
+        animation: mobileGiftCardOpen 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+
+    @keyframes mobileGiftCardOpen {
+        from {
+            transform: translate(-50%, -50%) rotate(-2deg) scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            opacity: 1;
+        }
+    }
+
+    .calendar-container {
+        transition: none !important; /* Disable CSS transitions on mobile */
+    }
+
+    .calendar-container.open {
+        animation: mobileCalendarOpen 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+
+    @keyframes mobileCalendarOpen {
+        from {
+            transform: translate(-50%, -50%) rotate(3deg) scale(0.8);
+            opacity: 0;
+        }
+        to {
+            transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            opacity: 1;
+        }
     }
 
     .letter-header h1 {
@@ -505,6 +518,12 @@ body {
 
     .character {
         font-size: 1.5rem;
+    }
+
+    .character img {
+        width: 100px;
+        height: 100px;
+        padding: 6px;
     }
 
     .photo-corner {
@@ -533,4 +552,283 @@ body {
 
 .letter-content::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 182, 193, 0.7);
+}
+
+/* Birthday Card Container */
+.birthday-card-container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 1rem;
+    max-width: 500px;
+    width: 90%;
+    height: auto;
+    max-height: 80vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg) scale(0.8);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 20;
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.3);
+    overflow: visible;
+}
+
+.birthday-card-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 182, 193, 0.1), rgba(255, 218, 224, 0.1));
+    border-radius: 20px;
+    z-index: -1;
+    transition: opacity 0.8s ease;
+}
+
+.birthday-card-container.open::before {
+    opacity: 0.5;
+}
+
+.birthday-card-container.open {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+.birthday-card-container.open:hover {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1.02);
+}
+
+/* Calendar Container */
+.calendar-container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 1rem;
+    max-width: 600px;
+    width: 90%;
+    height: auto;
+    max-height: 80vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(3deg) scale(0.8);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 20;
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.3);
+    overflow: visible;
+    pointer-events: auto;
+    will-change: transform, opacity;
+}
+
+.calendar-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 182, 193, 0.1), rgba(255, 218, 224, 0.1));
+    border-radius: 20px;
+    z-index: -1;
+    transition: opacity 0.8s ease;
+}
+
+.calendar-container.open::before {
+    opacity: 0.5;
+}
+
+.calendar-container.open {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+.calendar-container.open:hover {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1.02);
+}
+
+/* Gift Card Container */
+.gift-card-container {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    padding: 1rem;
+    max-width: 500px;
+    width: 90%;
+    height: auto;
+    max-height: 80vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-2deg) scale(0.8);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 20;
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.3);
+    overflow: visible;
+    pointer-events: auto;
+    will-change: transform, opacity;
+}
+
+.gift-card-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 182, 193, 0.1), rgba(255, 218, 224, 0.1));
+    border-radius: 20px;
+    z-index: -1;
+    transition: opacity 0.8s ease;
+}
+
+.gift-card-container.open::before {
+    opacity: 0.5;
+}
+
+.gift-card-container.open {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+.gift-card-container.open:hover {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1.02);
+}
+
+/* Card Header Styling */
+.card-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.card-header h1 {
+    font-size: 1.8rem;
+    color: #ff6b9d;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.calendar-header h1 {
+    font-size: 1.6rem;
+    color: #ff6b9d;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Card Content Styling */
+.card-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.birthday-message, .gift-message {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.birthday-message p, .gift-message p {
+    margin-bottom: 0.8rem;
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Calendar Grid Styling */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    border: 2px solid rgba(255, 182, 193, 0.3);
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
+    border-color: rgba(255, 182, 193, 0.6);
+}
+
+.event-card h3 {
+    color: #ff6b9d;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.event-card p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Card Footer Styling */
+.card-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.close-btn {
+    background: linear-gradient(45deg, #ff6b9d, #ff8fab);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+.close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+}
+
+.close-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design for New Containers */
+@media (max-width: 768px) {
+    .gift-card-container,
+    .calendar-container {
+        padding: 2rem;
+        max-width: 95%;
+    }
+    
+    .calendar-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.8rem;
+    }
+    
+    .card-header h1,
+    .calendar-header h1 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gift-card-container,
+    .calendar-container {
+        padding: 1.5rem;
+        transform: none;
+    }
+    
+    .calendar-grid {
+        grid-template-columns: 1fr;
+    }
 }

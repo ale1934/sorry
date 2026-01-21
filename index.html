@@ -22,25 +22,6 @@
             <div class="kuromi" id="kuromi-sticker"><img src="assets/kuromi.png" alt="Kuromi"></div>
         </div>
 
-        <!-- Decorative Sanrio Characters Bottom Left -->
-        <div class="character character-bottom-left">
-            <div class="pompompurin" id="pompompurin-sticker"><img src="assets/pompompurin.png" alt="Pompompurin"></div>
-        </div>
-
-        <!-- Decorative Sanrio Characters Bottom Right -->
-        <div class="character character-bottom-right">
-            <div class="badtz-maru" id="badtz-maru-sticker"><img src="assets/badtzmaru.png" alt="Badtz-Maru"></div>
-        </div>
-
-        <!-- Additional Characters -->
-        <div class="character character-middle-left">
-            <div class="my-melody" id="my-melody-sticker"><img src="assets/mymelody.png" alt="My Melody"></div>
-        </div>
-
-        <div class="character character-middle-right">
-            <div class="cinnamoroll" id="cinnamoroll-sticker"><img src="assets/hellokitty2.png" alt="Cinnamoroll"></div>
-        </div>
-
         <!-- Big Cinnamoroll in Center - Letter Trigger -->
         <div class="cinnamoroll-trigger" id="cinnamorollTrigger">
             <img src="assets/cinnamoroll.png" alt="Cinnamoroll">
@@ -76,6 +57,58 @@
                     <span class="page-indicator">Page <span id="currentPage">1</span> / 2</span>
                     <button class="page-btn next-btn" id="nextBtn" onclick="changePage(1)">→</button>
                 </div>
+            </div>
+        </main>
+
+        <!-- Gift Card Container -->
+        <main class="gift-card-container" id="giftCardContainer">
+            <div class="card-header">
+                <h1>� Special Delivery! �</h1>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="card-content">
+                <div class="gift-message">
+                    <p>Dear Sophia,</p>
+
+                    <p>Ale</p>
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <div class="decorative-line"></div>
+                <button class="close-btn" onclick="closeGiftCard()">Close</button>
+            </div>
+        </main>
+
+        <!-- Calendar Container -->
+        <main class="calendar-container" id="calendarContainer">
+            <div class="calendar-header">
+                <h1>📅 Special Events Calendar 📅</h1>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="calendar-content">
+                <div class="calendar-grid">
+                    <div class="event-card">
+                        <h3>🎂 Birthday</h3>
+                    </div>
+                    <div class="event-card">
+                        <h3>🎁 Surprise Coming</h3>
+                    </div>
+                    <div class="event-card">
+                        <h3>💝 Memory Lane</h3>
+                    </div>
+                    <div class="event-card">
+                        <h3>🌟 Future Plans</h3>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="calendar-footer">
+                <div class="decorative-line"></div>
+                <button class="close-btn" onclick="closeCalendar()">Close</button>
             </div>
         </main>
 
